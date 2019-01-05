@@ -1,0 +1,26 @@
+{
+  "name": "gatsby-source-jsonapi",
+  "version": "1.0.0",
+  "description": "JSONAPI compliant source plugin for Gatsby",
+  "main": "gatsby-node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Truemedia/gatsby-source-jsonapi.git"
+  },
+  "keywords": [
+    "gatsby",
+    "source",
+    "plugin",
+    "gatsby-source",
+    "jsonapi"
+  ],
+  "author": "Wade Penistone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Truemedia/gatsby-source-jsonapi/issues"
+  },
+  "homepage": "https://github.com/Truemedia/gatsby-source-jsonapi#readme"
+}
