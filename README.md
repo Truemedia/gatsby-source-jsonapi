@@ -20,9 +20,18 @@ In `gatsby-config.js`:
       {
         resolve: 'gatsby-source-jsonapi',
         options: {
-          key: 'API_KEY'
+          resource: 'product'
         }
       }
     ]
   };
 ```
+
+## Configuration Options
+These options are passed directly to the Gatsby config as seen in the install section.
+
+| Option | Default | Description |
+| --- | --- | --- |
+| resource | none (required) | Name of resource to be used from JSONAPI |
+
+Other options are available through environment variables set in an .env file. See [Data bite](https://www.npmjs.com/package/data-bite) for these options

@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Truemedia/gatsby-source-jsonapi/issues"
   },
-  "homepage": "https://github.com/Truemedia/gatsby-source-jsonapi#readme"
+  "homepage": "https://github.com/Truemedia/gatsby-source-jsonapi#readme",
+  "dependencies": {
+    "data-bite": "^2.1.0"
+  }
 }

@@ -1,12 +1,41 @@
+const Data = require('data-bite');
+
 exports.sourceNodes = (
   { actions, createNodeId, createContentDigest },
   configOptions
 ) => {
   const { createNode } = actions
 
-  // Gatsby adds a configOption that's not needed for this plugin, delete it
-  delete configOptions.plugins
+  let preset = 'fortune';
+  let service = new Data(preset).service();
 
-  // plugin code goes here...
-  console.log("Testing my plugin", configOptions)
+  let {resource} = configOptions;
+
+  // Transform
+  const processEntity = entity => {
+    const nodeId = createNodeId(`jsonapi-${resource}-${entity.id}`)
+    const nodeContent = JSON.stringify(entity)
+    const nodeData = Object.assign({}, entity, {
+      id: nodeId,
+      parent: null,
+      children: [],
+      internal: {
+        type: `JsonApi${resource}`,
+        content: nodeContent,
+        contentDigest: createContentDigest(entity),
+      },
+    })
+
+    return nodeData
+  }
+
+  return service.get(resource)
+    .then( (res) => {
+      return res.data;
+    }).then(entities => {
+      entities.forEach(entity => {
+        let nodeData = processEntity(entity)
+        createNode(nodeData)
+      });
+    });
 }
